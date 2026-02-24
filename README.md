@@ -12,6 +12,8 @@ Main goals:
 **All spatial coordinates and movements are in microns (µm)** to match real hardware systems.
 
 ## Project Structure
+
+```
 beam_finder/
 ├── algorithms/               # Pure math and fitting strategies
 │   ├── coarse_gaussian_finder.py
@@ -27,7 +29,7 @@ beam_finder/
 │   └── fitting.py
 ├── config.py                 # Central configuration & constants
 └── main.py                   # Main workflow / entry point
-text
+```
 ## Design Principles
 
 ## Implemented Strategies
