@@ -8,6 +8,13 @@ from hardware.motor_interface import Motor
 
 class SimulatedFastDetector(FastDetector):
 
+    """
+    A simulated fast detector for continuous acquisition.
+    This detector simulates high-frequency data acquisition during a motor sweep.
+    It samples the intensity from a GaussianBeamModel at the current motor position at a specified frequency.   
+    All spatial units are in microns.
+    Note: This is a simplified simulation. 
+   """
     def __init__(self, motor: Motor, beam_model: GaussianBeamModel):
         self.motor = motor
         self.beam_model = beam_model

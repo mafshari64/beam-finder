@@ -19,15 +19,15 @@ class BeamFinderConfig:
 
     # coarse search  (slow detector mode)
     coarse_step_size: float = 100 
-    max_coarse_steps: int = 20
-    intensity_drop_fraction: float = 0.3  # stop when signal < 30% of peak
+    #max_coarse_steps: int = 20
+    #intensity_drop_fraction: float = 0.3  # stop when signal < 30% of peak
 
     # Fine Gaussian refinement (around rough peak position)
     fine_scan_half_width: float = 150   
     fine_scan_num_points: int = 13 
 
     # Desired precision  for fitted beam centre
-    center_fit_precision: float = 3.0   # microns
+    #center_fit_precision: float = 3.0   # microns
 
     # Continuous fast scan parameters
     acquisition_frequency: float = 1000.0  # Hz

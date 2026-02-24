@@ -33,7 +33,7 @@ class CoarseGaussianBeamFinder:
         self.config = config
         self.measurement_count = 0
 
-    def _measure_point(self, position: float) -> float:
+    def _measure_intensity(self, position: float) -> float:
         self.motor.move_absolute(position)
         intensity = self.detector.read()
         self.measurement_count += 1
@@ -141,7 +141,7 @@ class CoarseGaussianBeamFinder:
         )
 
         intensities = [
-            self._measure_point(pos) for pos in positions
+            self._measure_intensity(pos) for pos in positions
         ]
 
         return positions, np.array(intensities)
@@ -172,5 +172,5 @@ class CoarseGaussianBeamFinder:
             "center": fit_result["center"],
             "fwhm": fit_result["fwhm"],
             "amplitude": fit_result["amplitude"],
-            "num_measurements": self.measurement_count,
+            "num_points": self.measurement_count,
         }

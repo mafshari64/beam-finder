@@ -1,14 +1,10 @@
 # Beam Centre Finder
-
-**Robust Gaussian beam centre detection system**  
-Optimized for slow (~5 s/readout) and fast detector modes with clean architecture.
-
 ## Overview
 
-This project provides a maintainable beam centre finding solution specifically designed for **Gaussian beam profiles**.
+This project provides a beam centre finding solution specifically designed for **Gaussian beam profiles** that Optimized for slow (~5 s/readout) and fast detector modes
 
 Main goals:
-- Minimize detector readouts (critical when each acquisition takes ~5 seconds)
+- Minimize slow detector readouts (critical when each acquisition takes ~5 seconds)
 - High robustness against noise and measurement errors
 - Long-term maintainability and clarity
 - Strict separation between hardware access, algorithms, and simulation
@@ -31,13 +27,8 @@ beam_finder/
 │   └── fitting.py
 ├── config.py                 # Central configuration & constants
 └── main.py                   # Main workflow / entry point
-text## Design Principles
-
-- Complete decoupling: hardware ↔ algorithms ↔ simulation
-- Consistent units (microns everywhere — no hidden conversions)
-- Strategy pattern for easy algorithm switching
-- Defensive code style (validation, meaningful errors)
-- Awareness of detector read cost in slow mode
+text
+## Design Principles
 
 ## Implemented Strategies
 
@@ -48,7 +39,7 @@ Ideal when detector readout is expensive (~5 s per point).
 **Steps:**
 1. Directional adaptive coarse grid search  
 2. Refined fine scan around approximate peak  
-3. 1D / 2D Gaussian fitting  
+3. 1D Gaussian fitting  
 
 → Keeps number of detector reads low while remaining reliable.
 
@@ -67,40 +58,33 @@ For high-speed detectors that support continuous acquisition.
 ## Mathematical Model
 
 Assumed intensity distribution:
+
 I(x) = A ⋅ exp( − (x − x₀)² / (2σ²) )
-textFull Width at Half Maximum:
+Full Width at Half Maximum:
 FWHM = 2.355 σ
-text## Simulation Support
+
+## Simulation Support
 
 Complete simulation layer for development and debugging:
 
 - `GaussianBeamModel` — realistic beam intensity generation
 - `SimulatedMotor` — virtual motorized stages
-- `SimulatedDetector` — configurable noise + slow/fast readout emulation
+- `SimulatedDetector` — noise + slow/fast readout emulation
 
 No physical hardware required during testing.
 
 How to Run
 
 ```bash
-# (Optional but recommended) Create and activate virtual environment
-python -m venv .venv
-.venv\Scripts\activate          # Windows
-# source .venv/bin/activate     # Linux/macOS
-
-# Install dependencies (once you create requirements.txt)
-# pip install -r requirements.txt
-
 # Run the program
 python main.py
-🛠 Maintainability Features
+
+Maintainability Features
 
 All units and parameters in one place: config.py
-No magic numbers or hidden conversions
 Algorithms do not know anything about hardware
 Gaussian fitting logic isolated in utils/fitting.py
 Tracks number of measurements taken
-Easy to extend with logging
 
 Current Assumptions
 
@@ -111,10 +95,5 @@ Readout time dominates in slow mode
 
 Planned Improvements
 
-Encoder + timestamp synchronization for fly-scans
-Adaptive step-size during coarse search
-Persistent logging to files
 Unit tests (pytest)
-Continuous integration (GitHub Actions)
-2D surface fitting support
 Real-time visualization of search path and fit
