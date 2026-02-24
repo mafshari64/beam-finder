@@ -11,26 +11,25 @@ class Motor:
 
     def move_relative(self, distance: float) -> None:
         """
-        Move the motor by a relative distance (in microns).
-
-        Distance can be positive or negative.
+        Move the motor by a relative distance (in microns), relative to its current location.
+        Distance can be both positive or negative to move in either direction.
         """
         raise NotImplementedError
 
     def move_absolute(self, location: float) -> None:
         """
-        Move the motor to an absolute position (in microns).
+        Move the motor to an absolute {location} (in microns).
         """
         raise NotImplementedError
 
     def get_position(self) -> float:
         """
-        Return the current motor position (in microns).
+        Return the current position of the motor. (in microns).
         """
         raise NotImplementedError
 
     def set_velocity(self, velocity: float) -> None:
         """
-        change the motor velocity (in microns per second).
+        Change the velocity of the motor, in microns per second.
         """
         raise NotImplementedError

@@ -11,13 +11,13 @@ class Detector:
 
     def setup(self) -> None:
         """
-        Prepare the detector so it is ready to take measurements.
+        Setup the detector so that it is ready to take data.
         """
         raise NotImplementedError
 
     def read(self) -> float:
         """
-        Return the measured intensity of x-rays on the detector.
+        Give the intensity of the x-rays on the detector.
         """
         raise NotImplementedError
 
