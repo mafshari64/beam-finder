@@ -4,8 +4,8 @@ Part 1
 A point detector is mounted on a motion stage such that it can move across a beam of x-rays.
 The setup looks like the following from above.
  
-The beam is expected to be a gaussian profile with a FWHM of ~ 100microns, the detector can be assumed
-to be infinitely small. 
+The beam is expected to be a gaussian profile with a FWHM of ~ 100microns, the detector can be
+assumed to be infinitely small. 
 You have access to the following interface for controlling the motor stage and the detector:
 
 '''
@@ -44,14 +44,14 @@ the beam as quickly and as accurately as possible. It is expected that the proje
 for many years and will have to be supported by future developers and so your solution should 
 include anything required to make future support as easy as possible.
 You will be assessed based on the logical structure of your solution and how maintainable the code
- is for future developers. Feel free to write the solution in the programming language you feel
-  most comfortable in, including pseudocode, and assume that you have access to libraries of common 
-  maths functions.
+is for future developers. Feel free to write the solution in the programming language you feel
+most comfortable in, including pseudocode, and assume that you have access to libraries of common 
+maths functions.
 
 Part 2
 A new detector has been bought that can take data at speeds up to 10 readings per second,
- it also contains an internal clock feature where the detector will continually take readings 
- at the requested frequency. The new detector interface looks like:
+it also contains an internal clock feature where the detector will continually take readings 
+at the requested frequency. The new detector interface looks like:
 '''
 class NewDetector:
     def __init__(self, frequency: float) -> None:
