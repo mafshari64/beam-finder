@@ -1,8 +1,14 @@
 
+'''
 Part 1
-A point detector is mounted on a motion stage such that it can move across a beam of x-rays. The setup looks like the following from above.
+A point detector is mounted on a motion stage such that it can move across a beam of x-rays.
+The setup looks like the following from above.
  
-The beam is expected to be a gaussian profile with a FWHM of ~ 100microns, the detector can be assumed to be infinitely small. You have access to the following interface for controlling the motor stage and the detector:
+The beam is expected to be a gaussian profile with a FWHM of ~ 100microns, the detector can be assumed
+to be infinitely small. 
+You have access to the following interface for controlling the motor stage and the detector:
+
+'''
 class Motor:
     def move_relative(self, distance: float) -> None:
         """Move the motor by {distance} microns -> None, relative to its current location.
@@ -32,13 +38,21 @@ class Detector:
     def cleanup(self) -> None:
         """Put the detector back into an idle state."""
 
-
-Reading the detector takes ~5s at each point. Build a minimal project that will find the centre of the beam as quickly and as accurately as possible. It is expected that the project will be in use for many years and will have to be supported by future developers and so your solution should include anything required to make future support as easy as possible.
-You will be assessed based on the logical structure of your solution and how maintainable the code is for future developers. Feel free to write the solution in the programming language you feel most comfortable in, including pseudocode, and assume that you have access to libraries of common maths functions.
+'''
+Reading the detector takes ~5s at each point. Build a minimal project that will find the centre of 
+the beam as quickly and as accurately as possible. It is expected that the project will be in use 
+for many years and will have to be supported by future developers and so your solution should 
+include anything required to make future support as easy as possible.
+You will be assessed based on the logical structure of your solution and how maintainable the code
+ is for future developers. Feel free to write the solution in the programming language you feel
+  most comfortable in, including pseudocode, and assume that you have access to libraries of common 
+  maths functions.
 
 Part 2
-A new detector has been bought that can take data at speeds up to 10 readings per second, it also contains an internal clock feature where the detector will continually take readings at the requested frequency. The new detector interface looks like:
-
+A new detector has been bought that can take data at speeds up to 10 readings per second,
+ it also contains an internal clock feature where the detector will continually take readings 
+ at the requested frequency. The new detector interface looks like:
+'''
 class NewDetector:
     def __init__(self, frequency: float) -> None:
         # (constructor body not shown in the photo)
@@ -56,8 +70,7 @@ class NewDetector:
 
     def cleanup(self) -> None:
         """Put the detector back into an idle state."""
-
+'''
 Improve your project so that it can use these new features to find the beam centre faster. 
-
- 
+'''
  
